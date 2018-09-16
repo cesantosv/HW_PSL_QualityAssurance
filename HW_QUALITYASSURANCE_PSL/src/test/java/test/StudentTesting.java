@@ -25,6 +25,8 @@ public class StudentTesting {
 		unsortedStudentsTest = new ArrayList<Student>();
 		sortStudent = new Sorting();
 		
+		String x = "HOla";
+		
 	    
 	}
 	
