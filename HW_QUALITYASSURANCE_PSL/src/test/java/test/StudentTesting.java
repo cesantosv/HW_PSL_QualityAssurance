@@ -24,9 +24,6 @@ public class StudentTesting {
 		
 		unsortedStudentsTest = new ArrayList<Student>();
 		sortStudent = new Sorting();
-		
-		String x = "HOla";
-		
 	    
 	}
 	
@@ -47,8 +44,21 @@ public class StudentTesting {
 	    
 	    assertNotNull("Retorned list from method should not be null", retornedList);
 	    
-	
 	}
+	
+	
+	
+    @Test
+    public void testCreationOfInstance() {
+    	
+    	
+    	Student testStudent = new Student(007,"TestStudent", 8.99);
+    	
+    	assertNotNull("The student should be created and not be null", testStudent);
+    	
+    	
+    }
+
 	/**
 	 * 
 	 * This method is in charge of testing if a list in sorted by the attribute CGPA
@@ -62,7 +72,6 @@ public class StudentTesting {
 		56 Samiha 3.75
 		19 Samara 3.75
 		22 Fahim 3.76*/
-
 		
 		unsortedStudentsTest.add(new Student(5,"Rumpa",5.3));
 		unsortedStudentsTest.add(new Student(1,"Ashis",6.3));
@@ -75,20 +84,66 @@ public class StudentTesting {
 		
 		List<Student> response = sortStudent.sortStudents(unsortedStudentsTest);
 		
-		//Testing.
+		//Test if the size is correct.
+		assertEquals(6,response.size());
 		
-		assertEquals("Spiderman", response.get(0).getFname());
-		assertEquals("Ashis", response.get(1).getFname());
-		assertEquals("Rumpa", response.get(2).getFname());
-		assertEquals("MaryJane", response.get(3).getFname());
-		assertEquals("TonyStark", response.get(4).getFname());
-		assertEquals("Samara", response.get(5).getFname());
+		//Testing Sorting.
+		
+		assertEquals("Spiderman", response.get(0).getFname());  // cgpa: 7.3
+		assertEquals("Ashis", response.get(1).getFname());  // cgpa: 6.3
+		assertEquals("Rumpa", response.get(2).getFname()); // cgpa: 5.3
+		assertEquals("MaryJane", response.get(3).getFname()); // cgpa: 4.3
+		assertEquals("TonyStark", response.get(4).getFname()); // cgpa : 3.3
+		assertEquals("Samara", response.get(5).getFname()); //cgpa: 1.3
+		
+	}
+	
+	
+	@Test
+	public void testSameCGPAandDifferentFname(){
+		
+		
+		
+		unsortedStudentsTest.add(new Student(1,"WarMachine",6.3));
+		unsortedStudentsTest.add(new Student(5,"AmericanCaptain",6.3));
+		unsortedStudentsTest.add(new Student(4,"MaryJane",4.3));
+		unsortedStudentsTest.add(new Student(3,"Spiderman",7.3));
+		unsortedStudentsTest.add(new Student(6,"Thor",1.3));
+		unsortedStudentsTest.add(new Student(2,"TonyStark",1.3));
+		
+		
+		//Call to method.
+		
+		
+		List<Student> response = sortStudent.sortStudents(unsortedStudentsTest);
+		
+		
+		//Testing Sorting
+		
+		assertEquals(3, response.get(0).getId());  // Expected id = 3 - fname: Spiderman
+		assertEquals(5, response.get(1).getId());  // Expected id = 5 - fname: AmericanCaptain 
+		assertEquals(1, response.get(2).getId()); // Expected id = 1 - fname: WarMachine 
+		assertEquals(4, response.get(3).getId()); // Expected id: 4  - fname: MaryJane 
+		assertEquals(6, response.get(4).getId()); // Expected id: 6  - fname: Thor 
+		assertEquals(2, response.get(5).getId()); //Expected id: 2  - fname: TonyStark
+		
+		
 		
 		
 		
 		
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+    
+	
+	
 	
 	
 	

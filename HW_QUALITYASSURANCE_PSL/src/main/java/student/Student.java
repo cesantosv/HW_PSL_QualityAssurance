@@ -42,7 +42,19 @@ public class Student implements Comparable<Student>{
 			return -1;
 			
 		}
-		return 0;
+		else{
+			
+			if(s.fname.compareTo(this.fname) > 0){
+				return -1;
+			}
+			else if(s.fname.compareTo(this.fname) < 0){
+				return 1;
+				
+			}
+			
+			return 0;
+		}
+		
 		
 	}
 	
