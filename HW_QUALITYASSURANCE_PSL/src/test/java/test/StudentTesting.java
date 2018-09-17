@@ -48,28 +48,45 @@ public class StudentTesting {
     @Test
     public void testCreationOfInstance() {
     	
-    	
     	Student testStudent = new Student(007,"TestStudent", 8.99);
-    	
     	assertNotNull("The student should be created and not be null", testStudent);
-    	
-    	
+    		
     }
 
-	/**
+	 /**
+	 * FIRST TEST CASE:  This method of testing is in charge of testing if a 
+	 * list in sorted by the attribute CGPA
 	 * 
-	 * This method is in charge of testing if a list in sorted by the attribute CGPA
 	 * 
+	 * Scenario: Sort an array of Students.
+	 * 
+	 * Given an Array of Six Students with the following data:
+	 * 
+	 *  id: 5 fname: Rumpa cgpa: 5.3
+	 *  id: 1 fname: Ashis cgpa: 6.3
+	 *  id: 4 fname: MaryJane cgpa: 4.3 
+	 *  id: 3 fname: Spiderman cgpa: 7.3
+	 *  id: 6 fname: Samara cgpa: 1.3
+	 *  id: 2 fname: TonyStark cgpa: 3.3
+	 * 
+	 * 
+	 *  When I use the method to sort those students.
+	 *  
+	 *  Then I should expect the following output ordered descendent by cgpa:
+	 *  
+	 *  id: 3 fname: Spiderman cgpa: 7.3
+	 *  id: 5 fname: Rumpa cgpa: 5.3
+	 *  id: 1 fname: Ashis cgpa: 6.3
+	 *  id: 4 fname: MaryJane cgpa: 4.3 
+	 *  id: 2 fname: TonyStark cgpa: 3.3
+	 *  id: 6 fname: Samara cgpa: 1.3
+	 *  
+	 *  And The size of the sorted List should be 6.
+	 *  
 	 */
 	@Test
 	public void testSortByCGPA(){
-		/*5
-		33 Rumpa 3.68
-		85 Ashis 3.85
-		56 Samiha 3.75
-		19 Samara 3.75
-		22 Fahim 3.76*/
-		
+
 		unsortedStudentsTest.add(new Student(5,"Rumpa",5.3));
 		unsortedStudentsTest.add(new Student(1,"Ashis",6.3));
 		unsortedStudentsTest.add(new Student(4,"MaryJane",4.3));
@@ -95,7 +112,41 @@ public class StudentTesting {
 		
 	}
 	
-	
+
+	 /***
+	 * SECOND TEST CASE:  This method of testing is in charge of testing if a 
+	 * list in sorted having in count that we have cases with equal cgpa and different fname.
+	 * 
+	 * 
+	 * Scenario: Sort an array of Students.
+	 * 
+	 * Given an Array of Six Students with the following data:
+	 * 
+	 *  id: 1 fname: WarMachine cgpa: 6.3
+	 *  id: 5 fname: AmericanCaptain cgpa: 6.3
+	 *  id: 4 fname: MaryJane cgpa: 4.3 
+	 *  id: 3 fname: Spiderman cgpa: 7.3
+	 *  id: 6 fname: Thor cgpa: 1.3
+	 *  id: 2 fname: TonyStark cgpa: 1.3
+	 * 
+	 * 
+	 *  When I use the method to sort those students 
+	 *  
+	 *  Then I should expect the following output ordered descendent by cgpa and alfabethical ordered by fname
+	 *  if we have equal cgpa.
+	 * 
+	 *  
+	 *  id: 3 fname: Spiderman cgpa: 7.3
+	 *  id: 5 fname: AmericanCaptain cgpa: 6.3
+	 *  id: 1 fname: WarMachine cgpa: 6.3
+	 *  id: 4 fname: MaryJane cgpa: 4.3 
+	 *  id: 6 fname: Thor cgpa: 1.3
+	 *  id: 2 fname: TonyStark cgpa: 1.3|
+	 *  
+	 *  And The size of the sorted List should be 6.
+	 *  
+	 ***/
+    
 	@Test
 	public void testSameCGPAandDifferentFname(){
 		
@@ -108,17 +159,11 @@ public class StudentTesting {
 		
 		
 		//Call to method.
-		
-		
-		List<Student> response = sortStudent.sortStudents(unsortedStudentsTest);
-		
-		
+		List<Student> response = sortStudent.sortStudents(unsortedStudentsTest);	
 		//Test Size.
 		
 		assertEquals(6,response.size());
-		
-		
-		
+	
 		//Testing Sorting
 		
 		assertEquals(3, response.get(0).getId());  // Expected id = 3 - fname: Spiderman
@@ -131,14 +176,40 @@ public class StudentTesting {
 	}
 	
 	
-	
-	
-	 /****
+	 /***
+	 * THIRD TEST CASE:  This method of testing is in charge of testing if a 
+	 * list in sorted having in count that we have cases with equal cgpa, equal fname, so in that case
+	 * it's necessary to order by id.
 	 * 
 	 * 
+	 * Scenario: Sort an array of Students.
+	 * 
+	 * Given an Array of Six Students with the following data:
+	 * 
+	 *  id: 4 fname: abce cgpa: 5.2
+	 *  id: 3 fname: abcef cgpa: 5.2
+	 *  id: 6 fname: abce cgpa: 5.2 
+	 *  id: 5 fname: abce cgpa: 5.2
+	 *  id: 1 fname: jamiroquai cgpa: 7.3
+	 *  id: 2 fname: abce cgpa: 5.2
 	 * 
 	 * 
-	 */
+	 *  When I use the method to sort those students 
+	 *  
+	 *  Then I should expect the following output ordered descendent by cgpa and alfabethical ordered by fname
+	 *  if we have equal cgpa and ordered by id if we have cases with equal cgpa and fname.
+	 * 
+	 *  
+	 *  id: 1 fname: jamiroquai cgpa: 7.3
+	 *  id: 2 fname: abce cgpa: 5.
+	 *  id: 4 fname: abce cgpa: 5.2
+	 *  id: 5 fname: abce cgpa: 5.2
+	 *  id: 6 fname: abce cgpa: 5.2 
+	 *  id: 3 fname: abcef cgpa: 5.2
+	 *  
+	 *  And The size of the sorted List should be 6.
+	 *  
+	 ***/
      @Test
      public void testSameCGPASameFnameandDifferentId(){
     	 
@@ -155,12 +226,10 @@ public class StudentTesting {
 		
 		
 	    List<Student> response = sortStudent.sortStudents(unsortedStudentsTest);
- 		
 	    
 	    //Test Size.
 	 	
 	    assertEquals(6,response.size());
-	    
 	    
 	    //Test Sorting.
 	    
@@ -170,18 +239,7 @@ public class StudentTesting {
 		assertEquals(5, response.get(3).getId()); // Expected id: 5 - fname: abce
 		assertEquals(6, response.get(4).getId()); // Expected id: 6 - fname: abce 
 		assertEquals(3, response.get(5).getId()); //Expected id: 3 - fname: abcef
-	
-		
-		
 		
      }
-     
-     
-     
-     
-     
-	
-	
-
 
 }

@@ -32,9 +32,7 @@ public class Student implements Comparable<Student>{
 	
 	//Sort students.
 	public int compareTo(Student s){
-		
 		//Sort with the double.
-		
 		if(s.cgpa > this.cgpa){
 			return 1;
 		}
@@ -43,7 +41,6 @@ public class Student implements Comparable<Student>{
 			
 		}
 		else{
-			
 			if(s.fname.compareTo(this.fname) > 0){
 				return -1;
 			}
@@ -61,11 +58,8 @@ public class Student implements Comparable<Student>{
 				else{
 					return 0;
 				}
-			}
-		    
+			}    
 		}
-		
-		
 	}
 	
 	public String toString(){
