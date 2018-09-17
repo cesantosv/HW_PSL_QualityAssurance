@@ -8,9 +8,6 @@ import org.junit.Test;
 import student.Student;
 import student.Sorting;
 
-
-
-
 public class StudentTesting {
 
 	String prueba;
@@ -102,8 +99,6 @@ public class StudentTesting {
 	@Test
 	public void testSameCGPAandDifferentFname(){
 		
-		
-		
 		unsortedStudentsTest.add(new Student(1,"WarMachine",6.3));
 		unsortedStudentsTest.add(new Student(5,"AmericanCaptain",6.3));
 		unsortedStudentsTest.add(new Student(4,"MaryJane",4.3));
@@ -118,6 +113,12 @@ public class StudentTesting {
 		List<Student> response = sortStudent.sortStudents(unsortedStudentsTest);
 		
 		
+		//Test Size.
+		
+		assertEquals(6,response.size());
+		
+		
+		
 		//Testing Sorting
 		
 		assertEquals(3, response.get(0).getId());  // Expected id = 3 - fname: Spiderman
@@ -126,30 +127,59 @@ public class StudentTesting {
 		assertEquals(4, response.get(3).getId()); // Expected id: 4  - fname: MaryJane 
 		assertEquals(6, response.get(4).getId()); // Expected id: 6  - fname: Thor 
 		assertEquals(2, response.get(5).getId()); //Expected id: 2  - fname: TonyStark
-		
-		
-		
-		
-		
-		
-		
+			
 	}
 	
 	
 	
 	
+	 /****
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+     @Test
+     public void testSameCGPASameFnameandDifferentId(){
+    	 
+    	 
+ 		unsortedStudentsTest.add(new Student(4,"abce",5.2));
+ 		unsortedStudentsTest.add(new Student(3,"abcef",5.2));
+ 		unsortedStudentsTest.add(new Student(6,"abce",5.2));
+ 		unsortedStudentsTest.add(new Student(5,"abce",5.2));
+ 		unsortedStudentsTest.add(new Student(1,"jamiroquai",7.3));
+ 		unsortedStudentsTest.add(new Student(2,"abce",5.2));
+ 		
+ 		
+        //Call to method.
+		
+		
+	    List<Student> response = sortStudent.sortStudents(unsortedStudentsTest);
+ 		
+	    
+	    //Test Size.
+	 	
+	    assertEquals(6,response.size());
+	    
+	    
+	    //Test Sorting.
+	    
+		assertEquals(1, response.get(0).getId());  // Expected id = 1 - fname: jamiroquai
+		assertEquals(2, response.get(1).getId());  // Expected id = 2 - fname: abce 
+		assertEquals(4, response.get(2).getId()); // Expected id = 4 - fname: abce 
+		assertEquals(5, response.get(3).getId()); // Expected id: 5 - fname: abce
+		assertEquals(6, response.get(4).getId()); // Expected id: 6 - fname: abce 
+		assertEquals(3, response.get(5).getId()); //Expected id: 3 - fname: abcef
 	
-	
-	
-    
-	
-	
-	
-	
-	
-	
-	
-	
+		
+		
+		
+     }
+     
+     
+     
+     
+     
 	
 	
 

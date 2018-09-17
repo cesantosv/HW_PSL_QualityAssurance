@@ -42,7 +42,6 @@ public class Main {
 	
 	public List<Student> getSortedStudents(List<Student> unsortedStudents){
 		
-		
 		Sorting instanceSorting = new Sorting();
 		
         List<Student> sortedStudents = instanceSorting.sortStudents(unsortedStudents);
