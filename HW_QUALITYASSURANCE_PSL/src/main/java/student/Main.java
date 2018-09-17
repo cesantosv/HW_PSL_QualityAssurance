@@ -17,7 +17,7 @@ public class Main {
 		
 		int cases = in.nextInt();
 	
-		for(int i = 1; i <= cases; i++){
+		for ( int i = 1; i <= cases; i++ ){
 			
 			short id = in.nextShort();
 			String fname = in.next();
@@ -31,7 +31,7 @@ public class Main {
 		
 	    List<Student> sortedStudents = m.getSortedStudents(unsortedStudents);
 	    
-	    for(Student st: sortedStudents){
+	    for( Student st: sortedStudents ){
 			System.out.println(st.toString());
 		}
 		

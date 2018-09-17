@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import student.Student;
 import student.Sorting;
+import student.Main;
 
 public class StudentTesting {
 
@@ -31,6 +32,21 @@ public class StudentTesting {
 	    
 	}
 	
+	/**
+	 * 
+	 * 
+	 * This method is in charge of testing the method getCgpa of Student.
+	 */
+	@Test
+	public void testGetCgpa() {
+		
+		Student testStudent = new Student(1, "test" , 8.444444);
+		
+		double expected = 8.444444;
+		
+		assertEquals(expected,testStudent.getCgpa(), 0.00001);
+        
+	}
 	
 	@Test
 	public void testCallToMethod() {
