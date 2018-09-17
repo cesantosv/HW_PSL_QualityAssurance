@@ -4,7 +4,7 @@ Here is our challenge
 
 https://www.hackerrank.com/challenges/java-sort/problem
 
-In this repo you can see a our praxis about TDD and BDD usign JUNIT
+In this repo you can see our homework of quality assurance with TDD and BDD using JUNIT
 
 # Authors 
 Carlos Ernesto Santos Velasco
