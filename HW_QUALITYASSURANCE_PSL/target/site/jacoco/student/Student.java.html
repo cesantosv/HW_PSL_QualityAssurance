@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Student.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW_QUALITYASSURANCE_PSL</a> &gt; <a href="index.source.html" class="el_package">student</a> &gt; <span class="el_source">Student.java</span></div><h1>Student.java</h1><pre class="source lang-java linenums">package student;
+
+import java.util.Arrays;
+import student.Sorting;
+
+
+
+public class Student implements Comparable&lt;Student&gt;{
+	
+	private int id;
+	private String fname;
+	private double cgpa;
+	public Student(int id, String fname, double cgpa) {
+<span class="fc" id="L14">		super();</span>
+<span class="fc" id="L15">		this.id = id;</span>
+<span class="fc" id="L16">		this.fname = fname;</span>
+<span class="fc" id="L17">		this.cgpa = cgpa;</span>
+<span class="fc" id="L18">	}</span>
+	
+	public int getId() {
+<span class="fc" id="L21">		return id;</span>
+	}
+	
+	public String getFname() {
+<span class="fc" id="L25">		return fname;</span>
+	}
+	
+	public double getCgpa() {
+<span class="fc" id="L29">		return cgpa;</span>
+	}
+	
+	
+	//Sort students.
+	public int compareTo(Student s){
+		//Sort with the double.
+<span class="fc bfc" id="L36" title="All 2 branches covered.">		if(s.cgpa &gt; this.cgpa){</span>
+<span class="fc" id="L37">			return 1;</span>
+		}
+<span class="fc bfc" id="L39" title="All 2 branches covered.">		else if(s.cgpa &lt; this.cgpa){</span>
+<span class="fc" id="L40">			return -1;</span>
+			
+		}
+		else{
+<span class="fc bfc" id="L44" title="All 2 branches covered.">			if(s.fname.compareTo(this.fname) &gt; 0){</span>
+<span class="fc" id="L45">				return -1;</span>
+			}
+<span class="fc bfc" id="L47" title="All 2 branches covered.">			else if(s.fname.compareTo(this.fname) &lt; 0){</span>
+<span class="fc" id="L48">				return 1;</span>
+
+			}
+			else {
+<span class="fc bfc" id="L52" title="All 2 branches covered.">				if(s.id &gt; this.id){</span>
+<span class="fc" id="L53">					return -1;</span>
+				}
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">				else if(s.id &lt; this.id){</span>
+<span class="fc" id="L56">					return 1;</span>
+				}
+				else{
+<span class="nc" id="L59">					return 0;</span>
+				}
+			}    
+		}
+	}
+	
+	public String toString(){
+<span class="nc" id="L66">		return this.id +&quot;  &quot; + this.fname + &quot; &quot; + this.cgpa;</span>
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
